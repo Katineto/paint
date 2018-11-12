@@ -1,0 +1,66 @@
+body {
+  background: #eeeeee;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+#paint-app {
+  width: 840px;
+  margin: 0 auto;
+}
+.not-selected {
+  opacity: 0.3;
+}
+.selected {
+  opacity: 1;
+}
+#tool-wrap-top {
+  width: 700px;
+  margin: 10px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 50px) 80px 30px 180px 50px 90px;
+  justify-items: center;
+  align-items: center;
+}
+#tool-wrap-bottom {
+  width: 70%;
+  margin: 10px auto;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 40px 160px 40px 90px 1fr;
+}
+#tool-size {
+  justify-self: start;
+  width: 164px;
+}
+#canvas {
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+}
+input#color {
+  border: transparent;
+  width: 45px;
+}
+svg {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  fill: #6e6969;
+}
+
+#pen,
+#text,
+#rainbow,
+#eraser,
+#clear {
+  cursor: pointer;
+}
+
+a:hover {
+  cursor: pointer;
+}
+a#download:visited {
+  text-decoration: none !important;
+  color: black;
+}
