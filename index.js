@@ -9,9 +9,13 @@ let color = "#8080ff";
 let toolSize = 20;
 let lineCap = "round";
 let hue = 70;
-// Default pen style
 ctx.strokeStyle = color;
 ctx.lineJoin = "round";
+
+const pen = document.getElementById("pen");
+const rainbow = document.getElementById("rainbow");
+const textTool = document.getElementById("text");
+const eraser = document.getElementById("eraser");
 
 // Main drawing functionality
 function draw(e) {
@@ -49,12 +53,23 @@ canvas.addEventListener("mousedown", e => {
 canvas.addEventListener("mouseup", () => (isDrawing = false));
 canvas.addEventListener("mouseout", () => (isDrawing = false));
 
+function handleClasses(selectedElem) {
+  const elements = [pen, textTool, eraser, rainbow];
+  elements.map(elem => {
+    if (elem.id !== selectedElem.id) {
+      console.log("something");
+      elem.classList.remove("selected");
+      elem.classList.add("not-selected");
+    }
+    selectedElem.classList.remove("not-selected");
+    selectedElem.classList.add("selected");
+  });
+}
+
 // Handle color selection
 const colorInput = document.getElementById("color");
 colorInput.addEventListener("change", () => {
   color = colorInput.value;
-  console.log(colorInput.value);
-  console.log(color);
 });
 
 // Handle pen width
@@ -67,18 +82,16 @@ sizeInput.addEventListener("change", () => {
 
 // Select pen
 function selectPen() {
+  handleClasses(pen);
   color = colorInput.value;
   selectedTool = "pen";
 }
-const pen = document.getElementById("pen");
 pen.addEventListener("click", selectPen);
 
 //Select rainbow
-const rainbow = document.getElementById("rainbow");
 rainbow.addEventListener("click", selectRainbow);
 function selectRainbow() {
-  rainbow.classList.remove("not-selected");
-  rainbow.classList.add("selected");
+  handleClasses(rainbow);
   selectedTool = "rainbow";
 }
 
@@ -89,15 +102,15 @@ function textPrompt() {
   ctx.font = `${sizeInput.value}px sans-serif`;
   ctx.fillText(text, lastX, lastY);
 }
-const textTool = document.getElementById("text");
 function handleTextInput() {
+  handleClasses(textTool);
   selectedTool = "text";
 }
 textTool.addEventListener("click", handleTextInput);
 
 // Select eraser
-const eraser = document.getElementById("eraser");
 eraser.addEventListener("click", () => {
+  handleClasses(eraser);
   selectedTool = "pen";
   color = "#fff";
 });
