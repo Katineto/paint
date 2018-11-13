@@ -1,0 +1,93 @@
+body {
+  background: #eeeeee;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+#paint-app {
+  width: 840px;
+  margin: 0 auto;
+}
+#canvas {
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Tool panel styles */
+.not-selected {
+  opacity: 0.5;
+}
+.selected {
+  opacity: 1;
+}
+svg {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  fill: #1a1919;
+}
+#tool-wrap-top {
+  width: 600px;
+  margin: 10px auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 50px) 70px 40px 180px 50px 100px;
+  align-items: center;
+}
+#tool-wrap-bottom {
+  width: 600px;
+  margin: 10px auto;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 40px 160px 40px 130px 40px 160px;
+}
+#tool-wrap-bottom svg {
+  opacity: 0.5;
+}
+#size {
+  justify-self: center;
+}
+label.tool-size {
+  justify-self: end;
+}
+#tool-size {
+  width: 164px;
+}
+input#color {
+  border: transparent;
+  width: 45px;
+  cursor: pointer;
+}
+
+#pen,
+#text,
+#rainbow,
+#eraser,
+#clear,
+.load {
+  cursor: pointer;
+}
+#pen:hover,
+#text:hover,
+#eraser:hover,
+#rainbow:hover {
+  opacity: 1;
+}
+
+#clear:hover,
+#download:hover,
+.load:hover {
+  font-weight: 600;
+}
+
+input#load {
+  display: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+a#download {
+  text-decoration: none !important;
+  color: black;
+}
